@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Battleship</title>
+</head>
+<body class="body" id="body">
+    <header class="header" id="header">
+        <button class="button" id="newGame">New Game</button>
+        <br>
+        <div class="mode">
+            Game mode:
+            <select class="mode__select ddd" name="mode" id="mode">
+                <option value="0" selected>Easy</option>
+                <option value="1">Hard</option>
+            </select>
+        </div>
+        <br>
+        <div class="mode">
+            Layout:
+            <select class="mode__select" name="layout" id="layout">
+                <option value="0" selected>Manual</option>
+                <option value="1">Auto</option>
+            </select>
+        </div>
+    </header>
+    <main class="main" id="main">
+        <div class="ships-container ships-container_enemy" id="shipsEnemy"></div>
+        <div class="field-container">
+            <h1 class="title">Enemy's fleet</h1>
+            <div class="field fieldEnemy" id="fieldEnemy"></div>
+            <div class="fieldBlocker animation hidden" id="animation"></div>
+            <div class="fieldBlocker hidden" id="fieldBlocker"></div>
+        </div>
+        <div class="field-container">
+            <h1 class="title">Your fleet</h1>
+            <div class="field fieldMe" id="fieldMe"></div>
+        </div>
+        <div class="ships-container ships-container_me" id="shipsMe"></div>
+        <div class="endGame" id="endGame">
+            <div class="endGame__title" id="endGameTitle"></div>
+        </div>
+        <div class="ships-block hidden" id="shipsBlock"></div>
+        <div class="tip finish greyed-out hidden" id="finish">Finish placing and start the game</div>
+        <div class="tip hidden" id="tip">Drag a ship while holding CTRL to rotate it.</div>
+    </main>
+
+    <script src="./gamejs/game.js"></script>
+</body>
+</html>

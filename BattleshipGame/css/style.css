@@ -1,0 +1,376 @@
+* {
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: .2s all;
+    line-height: 1.5;
+}
+
+
+
+.body {
+    user-select: none; 
+    background-color: #bdd1d06e;
+}
+
+.header {
+    margin: auto;
+    width: 1010px;
+    font-family: 'Open Sans Condenced';
+    text-align: center;
+}
+.mode__select:hover {
+    color: #0460a1;
+}
+
+.main {
+    position: relative;
+    /* width: 100%; */
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'Open Sans Condenced';
+}
+
+.field-container {
+    position: relative;
+    /* width: 401px; */
+}
+
+.title {
+    line-height: 50px;
+    margin: 0 10px;
+    text-align: center;
+    color: #a14b04a6;
+    font-weight: normal;
+}
+.button {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 160px;
+    padding: 10px 20px;
+    background: #cd9209a6;
+    border: 1px solid #e8e7e7ac;
+    color: #f9f8f5d1;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #cad8d55a;
+    border: 1px solid #eff2f2f6;
+    color: #0460a1;
+}
+
+.mode {
+    margin: auto;
+    width: 150px;
+    color: #06a8bd;
+    font-size: 19px;
+}
+
+.mode__select {
+    margin-top: 1px;
+    border: none;
+    font-size: 16px;
+    display: inline-block;
+    color: #f2e255;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    appearance: none;
+    padding: 0 5px;
+}
+
+
+
+.field {
+    width: 401px;
+    height: 401px;
+    border-top: 1px solid #cecccc;
+    border-left: 1px solid #d5d5d5;
+}
+
+.field_animated {
+    animation: .5s field-animation;
+}
+
+/* @keyframes field-animation {
+    from { transform: scale(1); }
+    25% { transform: scale(1.03); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.03); }
+    to { transform: scale(1); }
+} */
+
+@keyframes field-animation {
+    from { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-5px); }
+    to { transform: translateY(0); }
+}
+
+/* .fieldEnemy {
+    margin-right: 10px;
+}
+
+.fieldMe {
+    margin-left: 10px;
+} */
+
+.fieldBlocker {
+    position: absolute;
+    display: block;
+    top: 50px;
+    left: 0;
+    width: 401px;
+    height: 401px;
+    border: 1px solid #d2d0d0;
+    animation: 2s linear 0s infinite alternate ship; 
+    
+}
+
+.animation {
+    background: #e2e2e2dd url(../images/animation.png) no-repeat;
+    background-position: center 80px;
+    background-size: 200px 200px;
+}
+
+@keyframes ship { 
+    from { background-position: center 80px; } 
+    25% { background-position: center 85px; }
+    50% { background-position: center 80px; }
+    75% { background-position: center 85px; }
+    to { background-position: center 80px; } 
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.field__sector {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: #f9f9f9;
+    border-right: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    transition: none;
+}
+
+.field__sector-enemy {
+    background: #d8d8d145;
+    cursor: pointer;
+}
+
+.field__sector-enemy:hover {
+    background: #dfe3d096;
+}
+
+.field__sector-ship-me {
+    background: #c7b301;
+    border: 1px solid #f8b50a;
+}
+
+.field__sector-ship-enemy {
+    background: #929292;
+    border: 1px solid #929292;
+}
+
+.field__sector-miss {
+    background: #f9f9f9 url(../images/miss.png) no-repeat;
+    background-position: top right;
+    animation: .5s linear 0s alternate miss;   
+}
+
+.field__sector-next {
+    background: #f9f9f9 url(../images/next.png) no-repeat;
+    background-position: top right;
+    animation: .5s linear 0s alternate miss;   
+}
+
+@keyframes miss { 
+    from { background-color: #c0c0c0; }
+    to { background-color: #f9f9f9; }
+}
+
+.field__sector-hit-me {
+    border: 1px solid #c79c01;
+    background: #a9c701 url(../images/hit-me.png) no-repeat;
+    background-position: top right;
+    animation: .5s linear 0s alternate hit-me;   
+}
+
+.field__sector-hit-enemy {
+    /* border: 1px solid #007f74; */
+    border: 1px solid #929292;
+    background: #929292 url(../images/hit-enemy.png) no-repeat;
+    background-position: top right;
+    animation: .5s linear 0s alternate hit-enemy;
+}
+
+@keyframes hit-me { 
+    from { background-color: #B96F73; border: 1px solid #B96F73; } 
+    to { background-color: #0173c7; border: 1px solid #0173c7; }
+}
+
+@keyframes hit-enemy { 
+    from { background-color: #B96F73; border: 1px solid #B96F73; } 
+    to { background-color: #929292; border: 1px solid #929292; }
+}
+
+.field__sector-dragover-ok {
+    background: #0460a1;
+}
+
+.field__sector-dragover-bad {
+    background: #929292;
+}
+
+.endGame {
+    position: absolute;
+    top: 0px;
+    height: 455px;
+    width: 100%;
+}
+
+.endGame-animation {
+    animation: 2s endGame;
+}
+
+@keyframes endGame {
+    from {
+        background-color: white;
+    }
+    to {
+        background: none;
+    }
+}
+
+.endGame__title {
+    position: relative;
+    margin: auto;
+    width: max-content;
+    color: #0173c7;
+    text-align: center;
+    font-size: 30px;
+    animation: endGameTitle 1s;
+}
+
+@keyframes endGameTitle {
+    from {
+        transform: translateY(-300px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.ships-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.ships-container_enemy {
+    align-items: flex-end;
+}
+
+.ships-container_me {
+    align-items: flex-start;
+}
+
+.ship {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+}
+
+.ship-draggable:hover {
+    transform: translateY(-2px);
+}
+
+.ship-draggable:hover .ship__sector {
+    background: #0460a1;
+    cursor: pointer;
+}
+
+.ship-moved .ship__sector, .ship-moved:hover .ship__sector {
+    background: #929292;
+}
+
+.ship-stroke .ship__sector {
+    background: #bcb8b8;
+    animation: .5s blow-ship;
+}
+
+@keyframes blow-ship {
+    from {
+        background-color: #B96F73;
+    }
+    to {
+        background-color: #929292;
+    }
+}
+
+.ship__sector {
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    width: 36px;
+    height: 36px;
+    background: #c9a00cd3;
+    /* background: #c0c0c0; */
+}
+
+.ship__sector:first-child{
+    border-left: 1px solid #d5d5d5;
+}
+
+.ship__sector:last-child{
+    border-right: 1px solid #d5d5d5;
+}
+
+.tip {
+    position: absolute;
+    top: 470px;
+    width: 500px;
+    height: 100px;
+    background: #f9f9f9;
+    text-align: center;
+    line-height: 100px;
+    color: #0173c7;
+    font-size: 30px;
+    border: 1px dashed #d5d5d5;
+    cursor: pointer;
+}
+
+.finish {
+    border: 1px solid #aea5a5;
+}
+
+.finish:hover {
+    background: #ececec;
+    border: 1px solid #cfcfcf;
+    color: #047aa1;
+}
+
+.greyed-out, .greyed-out:hover {
+    background: #f9f9f9e2;
+    border: 1px solid #a5a5a5;
+    color: #d1c6c6;
+}
+
+.ships-block {
+    position: absolute;
+    top: 0;
+    /* right: 0; */
+    width: 600px;
+    height: 455px;
+    transform: translateX(50%);
+    z-index: 9100;
+}
